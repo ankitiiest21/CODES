@@ -25,6 +25,23 @@ void inorder(Tree*root)
  cout<<root->data<<" ";
  inorder(root->right);	
 }
+void inorderusingstacks(Tree*root)
+{
+ stack<Tree*> s;
+ if(root==NULL)
+  return;
+ Tree*curr=root;
+ while(!s.empty()||curr!=NULL){
+ 	while(curr!=NULL){
+ 		s.push(curr);
+ 		curr=curr->left;
+ 	}
+ 	curr=s.top();
+ 	s.pop();
+ 	cout<<curr->data<<" ";
+ 	curr=curr->right;
+ }	
+}
 void postorder(Tree*root)
 {
  if(root==NULL)
@@ -51,14 +68,18 @@ void levelorder(Tree*root)
 int main(){
 Tree*root=new Tree(1);
 root->left=new Tree(2);
-root->right=new Tree(3);
-root->left->left=new Tree(4);
-root->left->right=new Tree(5);
+root->right=new Tree(6);
+root->left->left=new Tree(3);
+root->left->right=new Tree(4);
+root->left->right->left=new Tree(5);
 cout<<"Preorder Traversal: ";
 preorder(root);
 cout<<"\n";
 cout<<"Inorder Traversal: ";
 inorder(root);
+cout<<"\n";
+cout<<"Inorder using Stacks: ";
+inorderusingstacks(root);
 cout<<"\n";
 cout<<"Postorder Traversal: ";
 postorder(root);
