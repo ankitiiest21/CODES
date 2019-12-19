@@ -2,6 +2,27 @@
   using namespace std;
   #define ll long long
   
+ ------------------------------------------CALCULATE (a^b)%m-----------------------------------------------------------------------
+  
+   ll mypow(ll a,ll b)
+  {
+    ll m=mod;
+    ll mul=a,ans=1;
+    while(b)
+    {
+     if(b&1)
+     {
+      ans*=mul;
+      ans%=m;
+     }
+     mul*=mul;
+     mul%=m;
+     b/=2;
+    }
+   return ans%m;
+  }
+
+  
   -----------------------------------------CALCULATE nCr---------------------------------------------------------------------------
   
   
@@ -15,3 +36,5 @@
    }
    return ans;
   }
+
+Catalan number C(n)=(1/(n+1))*calculateNCR(2*n,n);
