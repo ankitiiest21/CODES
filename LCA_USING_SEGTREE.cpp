@@ -106,7 +106,7 @@ int main()
     visited[i+1]=false;
    //For each node, num is the number of children
    cin>>num;
-   //The below loop takes children as input and creates pushes it in the tree.
+   //The below loop takes children as input and pushes it in the tree.
    while(num--){
     cin>>node;
     tree[i+1].PB(node);
